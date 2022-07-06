@@ -29,14 +29,16 @@ export class App extends Component {
     return Math.round((good / this.countTotalFeedback()) * 100);
   };
 
+  options = Object.keys(this.state);
+
   render() {
     const { good, neutral, bad } = this.state;
-    const options = Object.keys(this.state);
+
     return (
       <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={options}
+            options={this.options}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
